@@ -9,4 +9,5 @@ db.mongoose = mongoose;
 // db.terminal = require("./terminal.model");
 db.airport = require("./airport.model");
 
+
 module.exports = db;
