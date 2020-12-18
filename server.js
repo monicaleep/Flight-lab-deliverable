@@ -63,10 +63,12 @@ airport1.save().then(data=>{
   })
 
   terminal1.save().then((data)=>{
-    console.log(data)
-    console.log("Terminal 1 saved\n",terminal1)
-    airport1.terminals.push(terminal1);
-    airport1.save()
-    console.log('Saved airport1 with terminal', airport1)
+    console.log("Terminal 1 saved\n",data)
+    Airport.findOneAndUpdate({
+      name: "JFK"
+    },{$push : { terminals: data}},{useFindAndModify:false, new:true}).then((data)=>{
+      console.log('airport updated',data)
+    })
+
   })
 })
